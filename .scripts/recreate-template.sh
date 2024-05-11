@@ -1,11 +1,13 @@
 #!/bin/bash
 # https://stackoverflow.com/questions/47160524/linux-remove-all-files-except-hidden-files-and-folders
-find . -mindepth 1 ! -regex '^./.scripts.*' -delete
+rm -rf template
 
-npm create vite@latest . -- --template react-swc
+npm create vite@latest template -- --template react-swc
+
+cd template
 
 # Install Vitest
-npm install -D vitest
+npm install -D vitest --package-lock-only --no-package-lock
 
 # Array de comandos y scripts
 commands=(
@@ -34,8 +36,8 @@ for pair in "${commands[@]}"; do
     awk '/"scripts": {/ {print; print "    \"'"$command_name"'\": \"'"$command_script"'\","; next} 1' package.json > temp && mv temp package.json
 done
 
-npm install -D @testing-library/react
-npm install -D happy-dom
+npm install -D @testing-library/react --package-lock-only --no-package-lock
+npm install -D happy-dom --package-lock-only --no-package-lock
 
 mkdir tests
 
@@ -53,4 +55,4 @@ cp ../.scripts/files/Card.spec.jsx tests/Card.spec.jsx
 cp ../.scripts/files/useUndo.jsx src/useUndo.jsx
 cp ../.scripts/files/useUndo.spec.jsx tests/useUndo.spec.jsx
 
-npm run test
+# npm run test
