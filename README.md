@@ -1,0 +1,5 @@
+Need
+
+- node/npm
+- bash
+

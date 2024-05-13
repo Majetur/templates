@@ -39,20 +39,23 @@ done
 npm install -D @testing-library/react --package-lock-only --no-package-lock
 npm install -D happy-dom --package-lock-only --no-package-lock
 
-mkdir tests
+# React Routers
+npm install -D react-router-dom --package-lock-only --no-package-lock
+
+# Tailwind
+npm install -D tailwindcss postcss autoprefixer --package-lock-only --no-package-lock
+npx tailwindcss init -p
+
+# Sonner
+npm install sonner --package-lock-only --no-package-lock
+
+# React Icons
+npm i react-icons --package-lock-only --no-package-lock
 
 # Configuracion de Vite
 cp ../.scripts/files/vite.config.js vite.config.js
-# calculator
-cp ../.scripts/files/calculator.js src/calculator.js
-cp ../.scripts/files/calculator.spec.js tests/calculator.spec.js
 
-# Card
-cp ../.scripts/files/Card.jsx src/Card.jsx
-cp ../.scripts/files/Card.spec.jsx tests/Card.spec.jsx
-
-# useUndo
-cp ../.scripts/files/useUndo.jsx src/useUndo.jsx
-cp ../.scripts/files/useUndo.spec.jsx tests/useUndo.spec.jsx
+# cp tests folder
+cp -a ../.scripts/files/. .
 
 # npm run test
