@@ -1,0 +1,54 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "setup_environment",
+        "type": "shell",
+        "command": "./.scripts/setup.sh",
+        "windows": {
+          "command": "bash .scripts/setup.sh"
+        },
+        "runOptions": {
+          // "runOn": "folderOpen"
+        },
+        "problemMatcher": []
+      },
+      {
+        "label": "spring_boot_run",
+        "type": "shell",
+        "command": ".\\mvnw clean spring-boot:run",
+        "problemMatcher": []
+      },
+      {
+          "label": "bump_version",
+          "type": "shell",
+          "command": "./.scripts/bump_version.sh ${input:selectedVersion}",
+          "windows": {
+              "command": "$PSDefaultParameterValues['Out-File:Encoding'] = 'utf8'; bash .scripts/bump_version.sh ${input:selectedVersion}"
+          },
+          "problemMatcher": []
+      }
+    ],
+    "inputs": [
+        {
+          "type": "pickString",
+          "id": "selectedVersion",
+          "description": "¿qué tipo de versión está creando? \nPruba\nprueba",
+          "options": [
+            {
+              "label" : "Parche - Nueva funcionalidad compatible con versiones anteriores o arreglo de error",
+              "value": "patch"
+            },
+            {
+              "label" : "Mayor - Nueva funcionalidad incompatible con versiones anteriores.",
+              "value": "minor"
+            },
+            {
+              "label" : "Mayor - Hito de Nueva Version.",
+              "value": "major"
+            }
+          ],
+          "default": "patch"
+        }
+      ]
+}
