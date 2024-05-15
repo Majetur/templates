@@ -7,7 +7,7 @@ npm create vite@latest template -- --template react-swc
 cd template
 
 # Install Vitest
-npm install -D vitest --package-lock-only --no-package-lock
+npm install -D vitest @vitest/coverage-v8 --package-lock-only --no-package-lock
 
 # Array de comandos y scripts
 commands=(

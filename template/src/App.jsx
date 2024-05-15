@@ -7,31 +7,11 @@ import {
 } from "react-router-dom";
 import { Dashboard } from "./modules/Dashboard/pages/Dashboard";
 import { ErrorPage } from "./modules/ErrorPage/pages/ErrorPage";
-import { Members } from "./modules/Members/pages/Members";
-import { NewMember } from "./modules/Members/pages/NewMember";
+import { Consejerias } from "./modules/Consejerias/pages/Consejerias";
 import { Toaster } from "sonner";
+import { routes } from "./config/routes";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Proyecto />,
-    errorElement: <ErrorPage/>,
-    children:[
-      {
-        path: "/",
-        element: <Dashboard />,
-      },
-      {
-        path: "/members",
-        element: <Members />,
-      },
-      {
-        path: "/members/create",
-        element: <NewMember />,
-      },
-    ]
-  },
-]);
+const router = createBrowserRouter(routes);
 
 function App() {
 

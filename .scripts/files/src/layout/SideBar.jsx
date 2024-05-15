@@ -1,21 +1,9 @@
-import { FaUsers } from "react-icons/fa"
-import { MdDashboard } from "react-icons/md"
 import { NavLink } from "react-router-dom"
+import { menu } from "../config/menu"
 
 export const SideBar = () => {
 
-  const menuItems = [
-    {
-      name: "Dashboard",
-      link: "/",
-      icon: <MdDashboard/>
-    },
-    {
-      name: "Socios",
-      link: "/members",
-      icon: <FaUsers />
-    },
-  ]
+  const menuItems = menu
 
   const inactiveItem = "flex items-center justify-start w-full p-2 pl-6 my-2 text-gray-800 transition-colors duration-200"
   const activeItem = "flex items-center justify-start w-full p-2 pl-6 my-2 text-gray-800 transition-colors duration-200 border-l-4 border-purple-500 dark:text-white"
