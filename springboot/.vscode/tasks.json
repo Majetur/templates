@@ -9,7 +9,7 @@
           "command": "bash .scripts/setup.sh"
         },
         "runOptions": {
-          // "runOn": "folderOpen"
+           "runOn": "folderOpen"
         },
         "problemMatcher": []
       },
