@@ -16,6 +16,12 @@ function step {
     echo "   - $message"
 }
 
+if [ -f ".scripts/configured" ]; then
+    exit 0
+fi
+
+touch .scripts/configured
+
 title "Comprobando carpeta '.path'"
 if [ ! -d ".path" ]
 then
