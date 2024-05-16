@@ -7,16 +7,31 @@
             hasAttachments: false,
             body: undefined,
             onUnauthorized: () => "Unauthorized",
-            getAuthToken: () => ""
+            getAuthToken: () => "",
+            getUsuarioDev: () => "",
+            getPerfilDev: () => "",
+            isPreOrPro: () => true,
         };
         let config = Object.assign({}, defaults, options);
     
         let sso = config.getAuthToken();
         
+        const devHeaders = {}
+
+        if(!config.isPreOrPro()){
+            let user = config.getUsuarioDev()
+            let profile = config.getPerfilDev()
+
+            if(user) devHeaders["Jwt-User"] = user
+            if(profile) devHeaders["profile"] = profile
+
+        }
+
         const headers = {
             ...(config.hasAttachments      ? {} : { 'Content-Type' : 'application/json' }),
             ...(sso == null || sso == ""   ? {} : { 'Authorization': sso } ),
-            ...config.headers
+            ...config.headers,
+            ...devHeaders
         }
         
         const respuesta = await fetch(endpoint, {
