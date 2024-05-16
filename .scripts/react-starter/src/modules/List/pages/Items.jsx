@@ -7,7 +7,7 @@ export const Items = () => {
   const [title, setTitle] = useState("Titulo")
   const [items, setItems] = useState([])
   const handleClick = () => {
-    toast.success("Boton clickada")
+    toast.success("Boton clickado")
     setTitle("Demo")
   }
   const fetchItems = async () => setItems((await api.personajes()).results)
