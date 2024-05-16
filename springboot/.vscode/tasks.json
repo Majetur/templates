@@ -8,10 +8,12 @@
         "windows": {
           "command": "bash .scripts/setup.sh"
         },
-        "runOptions": {
-           "runOn": "folderOpen"
+        "presentation": {
+            "reveal": "silent"
         },
-        "problemMatcher": []
+        "runOptions": {
+            "runOn": "folderOpen"
+        },
       },
       {
         "label": "spring_boot_run",

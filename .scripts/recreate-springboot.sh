@@ -7,3 +7,5 @@ mkdir springboot
 cd springboot
 
 cp -a ../.scripts/springboot/. .
+
+chmod +x .scripts/*
