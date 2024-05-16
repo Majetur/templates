@@ -12,7 +12,7 @@ function App() {
 
   return (
     <>
-      <Toaster richColors position="top-center"/>
+      <Toaster richColors closeButton position="top-center"/>
       <RouterProvider router={router} />
     </>
   )
