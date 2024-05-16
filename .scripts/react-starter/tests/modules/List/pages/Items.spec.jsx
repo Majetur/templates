@@ -25,4 +25,10 @@ describe('Items test:', () => {
         await screen.findByText("Demo")
     });
 
+    it('aparece el item Rick Sanchez', async () => {
+        render(<Router><Items /></Router>);
+
+        await screen.findByText("Rick Sanchez")
+    });
+
 });
