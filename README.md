@@ -15,7 +15,7 @@ npm install -g degit
 
 ## React template 
 ```sh
-degit raultm/vite-template/template app
+degit raultm/templates/react-starter app
 cd app
 npm i
 npm run dev
@@ -24,5 +24,5 @@ npm run dev
 ## Springboot for local development
 
 ```sh
-degit raultm/vite-template/springboot .
+degit raultm/templates/springboot .
 ```

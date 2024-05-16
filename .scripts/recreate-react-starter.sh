@@ -1,10 +1,10 @@
 #!/bin/bash
 # https://stackoverflow.com/questions/47160524/linux-remove-all-files-except-hidden-files-and-folders
-rm -rf template
+rm -rf react-starter
 
-npm create vite@latest template -- --template react-swc
+npm create vite@latest react-starter -- --template react-swc
 
-cd template
+cd react-starter
 
 # Install Vitest
 npm install -D vitest @vitest/coverage-v8 --package-lock-only --no-package-lock
@@ -53,9 +53,9 @@ npm install sonner --package-lock-only --no-package-lock
 npm i react-icons --package-lock-only --no-package-lock
 
 # Configuracion de Vite
-cp ../.scripts/files/vite.config.js vite.config.js
+cp ../.scripts/react-starter/vite.config.js vite.config.js
 
 # cp tests folder
-cp -a ../.scripts/files/. .
+cp -a ../.scripts/react-starter/. .
 
 # npm run test
