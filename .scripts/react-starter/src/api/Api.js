@@ -1,8 +1,8 @@
 const API_URL = "http://localhost:8090";
-const CONSEJERIAS_API_URL = "https://despgapbackend.acaex.es/pgap_backend"
+const RICKYMORTY_API_URL = "https://rickandmortyapi.com/api/character"
 
 const backend = {
-    get: async (endpoint) => await (await fetch(`${CONSEJERIAS_API_URL}${endpoint}`)).json(),
+    get: async (endpoint) => await (await fetch(`${RICKYMORTY_API_URL}${endpoint}`)).json(),
     post: async (endpoint, data) => await (await fetch(`${API_URL}${endpoint}`, {
         method: 'POST',
         headers: { "Content-Type": "application/json",},
@@ -11,6 +11,7 @@ const backend = {
 }
 
 export let api = {
+    personajes: async () => await backend.get("/character"),
     consejerias: async () => (await backend.get("/consejerias")).data,
     members: async () => backend.get("/members"),
     addMember: async (data) => backend.post("/members", data),

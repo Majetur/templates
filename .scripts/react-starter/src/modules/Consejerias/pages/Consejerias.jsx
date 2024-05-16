@@ -10,7 +10,7 @@ export const Consejerias = () => {
     toast.success("Boton clickado")
     setTitle("Demo")
   }
-  const fetchMembers = async () => setMembers(await api.consejerias())
+  const fetchMembers = async () => setMembers((await api.personajes()).results)
   useEffect(() => { fetchMembers() }, [])
 
   return (
@@ -41,10 +41,10 @@ export const Consejerias = () => {
               <thead>
                 <tr>
                   <th scope="col" className="px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white border-b border-gray-200">
-                    Dir3
+                    Nombre
                   </th>
                   <th scope="col" className="px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white border-b border-gray-200">
-                    Nombre
+                    Especie
                   </th>
                   {/* <th scope="col" className="px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white border-b border-gray-200">
                     Created at
@@ -52,8 +52,8 @@ export const Consejerias = () => {
                   <th scope="col" className="px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white border-b border-gray-200">
                     status
                   </th> */}
-                  <th scope="col" className="px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white border-b border-gray-200">
-                  </th>
+                  {/* <th scope="col" className="px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white border-b border-gray-200">
+                  </th> */}
                 </tr>
               </thead>
               <tbody>
@@ -68,14 +68,14 @@ export const Consejerias = () => {
                         </div> */}
                         <div className="ml-3">
                           <p className="text-gray-900 whitespace-no-wrap">
-                            {member.dir3}
+                            {member.name}
                           </p>
                         </div>
                       </div>
                     </td>
                     <td className="px-5 py-5 text-sm bg-white border-b border-gray-200">
                       <p className="text-gray-900 whitespace-no-wrap">
-                        {member.nombre}
+                        {member.species}
                       </p>
                     </td>
                     {/* <td className="px-5 py-5 text-sm bg-white border-b border-gray-200">
@@ -92,11 +92,11 @@ export const Consejerias = () => {
                         </span>
                       </span>
                     </td> */}
-                    <td className="px-5 py-5 text-sm bg-white border-b border-gray-200">
+                    {/* <td className="px-5 py-5 text-sm bg-white border-b border-gray-200">
                       <a href="#" className="text-indigo-600 hover:text-indigo-900">
                         Ver
                       </a>
-                    </td>
+                    </td> */}
                   </tr>
                 )}
               </tbody>

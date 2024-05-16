@@ -26,7 +26,7 @@ describe('fetchApi', () => {
     });
 
     // MARK: Status
-    describe("status", () => {
+    describe("estados", () => {
         it('puede devolver una respuesta 200 - Success', async () => {
             vi.spyOn(global, "fetch").mockImplementationOnce(() => createFetchResponse(200))
 
@@ -117,7 +117,7 @@ describe('fetchApi', () => {
     })
 
     // MARK: Headers
-    describe("headers", () => {
+    describe("cabeceras", () => {
         it('por defecto el Content-Type es application/json', async () => {
             vi.spyOn(global, "fetch").mockImplementationOnce(() => createFetchResponse(200))
 
@@ -144,7 +144,7 @@ describe('fetchApi', () => {
             expect(fetch).toHaveBeenCalledWith(expect.stringContaining(fakeendpoint), expect.objectContaining({ headers: expect.objectContaining({ "Authorization": token }) }))
         })
 
-        it('puedo añadir una cabecera adicional', async () => {
+        it('se puede añadir una cabecera adicional', async () => {
             vi.spyOn(global, "fetch").mockImplementationOnce(() => createFetchResponse(200))
 
             await fetchApi(fakeendpoint, { headers: { "test": "test" } })
@@ -152,7 +152,7 @@ describe('fetchApi', () => {
             expect(fetch).toHaveBeenCalledWith(expect.stringContaining(fakeendpoint), expect.objectContaining({ headers: expect.objectContaining({ "test": "test" }) }))
         })
 
-        it('puedo añadir varias cabeceras adicional', async () => {
+        it('se pueden añadir varias cabeceras adicional', async () => {
             vi.spyOn(global, "fetch").mockImplementationOnce(() => createFetchResponse(200))
 
             await fetchApi(fakeendpoint, { headers: { "test1": "test1", "test2": "test2", "test3": "test3" } })
@@ -163,7 +163,7 @@ describe('fetchApi', () => {
     })
 
     // MARK: body
-    describe('body', () => {
+    describe('cuerpo', () => {
         it('por defecto el body undefined', async () => {
             vi.spyOn(global, "fetch").mockImplementationOnce(() => createFetchResponse(200))
 
