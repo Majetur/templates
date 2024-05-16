@@ -1,5 +1,5 @@
 const API_URL = "http://localhost:8090";
-const RICKYMORTY_API_URL = "https://rickandmortyapi.com/api/character"
+const RICKYMORTY_API_URL = "https://rickandmortyapi.com/api"
 
 const backend = {
     get: async (endpoint) => await (await fetch(`${RICKYMORTY_API_URL}${endpoint}`)).json(),

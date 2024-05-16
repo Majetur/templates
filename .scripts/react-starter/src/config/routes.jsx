@@ -1,7 +1,7 @@
 import { Proyecto } from "../Proyecto";
-import { Consejerias } from "../modules/Consejerias/pages/Consejerias";
 import { Dashboard } from "../modules/Dashboard/pages/Dashboard";
 import { ErrorPage } from "../modules/ErrorPage/pages/ErrorPage";
+import { Items } from "../modules/List/pages/Items";
 
 
 export const routes = [
@@ -15,8 +15,8 @@ export const routes = [
                 element: <Dashboard />,
             },
             {
-                path: "/consejerias",
-                element: <Consejerias />,
+                path: "/items",
+                element: <Items />,
             },
         ]
     },

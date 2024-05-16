@@ -9,7 +9,7 @@ export const menu = [
     },
     {
         name: "Socios",
-        link: "/consejerias",
+        link: "/items",
         icon: <FaUsers />
     },
 ]

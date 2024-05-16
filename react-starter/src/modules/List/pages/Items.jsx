@@ -2,23 +2,23 @@ import { api } from "../../../api/Api";
 import { useEffect, useState } from "react";
 import { toast } from "sonner"
 
-export const Consejerias = () => {
+export const Items = () => {
 
-  const [title, setTitle] = useState("Consejerias")
-  const [members, setMembers] = useState([])
+  const [title, setTitle] = useState("Titulo")
+  const [items, setItems] = useState([])
   const handleClick = () => {
-    toast.success("Boton clickado")
+    toast.success("Boton clickada")
     setTitle("Demo")
   }
-  const fetchMembers = async () => setMembers((await api.personajes()).results)
-  useEffect(() => { fetchMembers() }, [])
+  const fetchItems = async () => setItems((await api.personajes()).results)
+  useEffect(() => { fetchItems() }, [])
 
   return (
     <div className="container max-w-3xl px-4 mx-auto sm:px-8">
       <div className="py-8">
         <div className="flex flex-row justify-between w-full mb-1 sm:mb-0">
           <h2 className="text-2xl leading-tight">
-            { title }
+            {title}
           </h2>
           <div className="text-end">
             <form className="flex flex-col justify-center w-3/4 max-w-sm space-y-3 md:flex-row md:w-full md:space-x-3 md:space-y-0">
@@ -46,57 +46,30 @@ export const Consejerias = () => {
                   <th scope="col" className="px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white border-b border-gray-200">
                     Especie
                   </th>
-                  {/* <th scope="col" className="px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white border-b border-gray-200">
-                    Created at
-                  </th>
-                  <th scope="col" className="px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white border-b border-gray-200">
-                    status
-                  </th> */}
-                  {/* <th scope="col" className="px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white border-b border-gray-200">
-                  </th> */}
                 </tr>
               </thead>
               <tbody>
-                {members.map(member =>
-                  <tr key={member.id}>
+                {items.map(item =>
+                  <tr key={item.id}>
                     <td className="px-5 py-5 text-sm bg-white border-b border-gray-200">
                       <div className="flex items-center">
-                        {/* <div className="flex-shrink-0">
-                          <a href="#" className="relative block">
-                            <img alt="profil" src="/images/person/8.jpg" className="mx-auto object-cover rounded-full h-10 w-10 " />
+                        <div className="flex-shrink-0">
+                          <a className="relative block">
+                            <img alt="profile" src={item.image} className="mx-auto object-cover rounded-full h-20 w-20 " />
                           </a>
-                        </div> */}
+                        </div>
                         <div className="ml-3">
                           <p className="text-gray-900 whitespace-no-wrap">
-                            {member.name}
+                            {item.name}
                           </p>
                         </div>
                       </div>
                     </td>
                     <td className="px-5 py-5 text-sm bg-white border-b border-gray-200">
                       <p className="text-gray-900 whitespace-no-wrap">
-                        {member.species}
+                        {item.species}
                       </p>
                     </td>
-                    {/* <td className="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                      <p className="text-gray-900 whitespace-no-wrap">
-                        12/09/2020
-                      </p>
-                    </td> */}
-                    {/* <td className="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                      <span className="relative inline-block px-3 py-1 font-semibold leading-tight text-green-900">
-                        <span aria-hidden="true" className="absolute inset-0 bg-green-200 rounded-full opacity-50">
-                        </span>
-                        <span className="relative">
-                          active
-                        </span>
-                      </span>
-                    </td> */}
-                    {/* <td className="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                      <a href="#" className="text-indigo-600 hover:text-indigo-900">
-                        Ver
-                      </a>
-                    </td> */}
                   </tr>
                 )}
               </tbody>
