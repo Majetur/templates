@@ -5,14 +5,31 @@ const backend = {
     get: async (endpoint) => await (await fetch(`${RICKYMORTY_API_URL}${endpoint}`)).json(),
     post: async (endpoint, data) => await (await fetch(`${API_URL}${endpoint}`, {
         method: 'POST',
-        headers: { "Content-Type": "application/json",},
-        body: JSON.stringify(data)
-    }))
+        headers: { "Content-Type": "application/json", },
+        ...data ? { body: JSON.stringify(data) } : {}
+    })).json(),
+    put: async (endpoint, data) => await (await fetch(`${API_URL}${endpoint}`, {
+        method: 'PUT',
+        headers: { "Content-Type": "application/json", },
+        ...data ? { body: JSON.stringify(data) } : {}
+    })).json(),
+    delete: async (endpoint, data) => await (await fetch(`${API_URL}${endpoint}`, {
+        method: 'DELETE',
+        headers: { "Content-Type": "application/json", },
+        ...data ? { body: JSON.stringify(data) } : {}
+    })).json()
 }
 
+// MARK: API
 export let api = {
-    personajes: async () => await backend.get("/character"),
-    consejerias: async () => (await backend.get("/consejerias")).data,
-    members: async () => backend.get("/members"),
-    addMember: async (data) => backend.post("/members", data),
+    genericItemListWithPagination : async (endpoint, setItems, setPagination) => {
+        const response = await backend.get(endpoint).json()
+
+        if(setItems) { setItems(response.data)}
+
+        if(setPagination) { setPagination(response.pagination)}
+
+        return response
+    },
+    personajes: async () => await genericItemListWithPagination("/character"),
 }
