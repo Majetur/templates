@@ -9,32 +9,26 @@ export const fetchApi = async (endpoint, options = {}) => {
         getUsuarioDev: () => "",
         getPerfilDev: () => "",
         isPreOrPro: () => true,
+        getEnvSso: () => "",
+        isSsoDefined: (sso) => true,
+        isTokenExpired: (sso) => false,
+        tryToGetSso: (maxRetries, sso) => sso
     };
     let config = Object.assign({}, defaults, options);
 
     let sso = config.getAuthToken();
 
-    const devHeaders = {}
-
-    if (!config.isPreOrPro()) {
-        let user = config.getUsuarioDev()
-        let profile = config.getPerfilDev()
-
-        if (user) devHeaders["Jwt-User"] = user
-        if (profile) devHeaders["profile"] = profile
-
-    }
-
-    const headers = {
-        ...(config.hasAttachments ? {} : { 'Content-Type': 'application/json' }),
-        ...(sso == null || sso == "" ? {} : { 'Authorization': sso }),
-        ...config.headers,
-        ...devHeaders
+    if (config.isPreOrPro()) {
+        if(!config.isSsoDefined(sso) || config.isTokenExpired(sso)){
+            sso = config.tryToGetSso(5, sso)
+        }
+    } else {
+        sso = config.getEnvSso() ?? sso
     }
 
     const respuesta = await fetch(endpoint, {
         method: config.method,
-        headers: headers,
+        headers: setHeaders(),
         body: config.body
     })
 
@@ -49,9 +43,33 @@ export const fetchApi = async (endpoint, options = {}) => {
             throw await respuesta.json()
         case 401:
             config.onUnauthorized()
-            return
+            return respuesta
         default:
             throw respuesta
     }
 
+
+    function setHeaders() {
+        return {
+            ...(config.hasAttachments ? {} : { 'Content-Type': 'application/json' }),
+            ...(sso == null || sso == "" ? {} : { 'Authorization': sso }),
+            ...config.headers,
+            ...setDevHeaders(config)
+        };
+    }
+
+    function setDevHeaders() {
+        const devHeaders = {};
+
+        if (!config.isPreOrPro()) {
+            let user = config.getUsuarioDev();
+            let profile = config.getPerfilDev();
+
+            if (user) devHeaders["Jwt-User"] = user;
+            if (profile) devHeaders["profile"] = profile;
+
+        }
+
+        return devHeaders;
+    }
 }

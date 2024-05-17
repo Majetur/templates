@@ -8,6 +8,7 @@ function createFetchResponse(status, data) {
     });
 }
 
+// MARK: Defaults
 const fetchApi = async (endpoint, options) => {
     var defaults = {
         method: 'GET',
@@ -18,7 +19,11 @@ const fetchApi = async (endpoint, options) => {
         getAuthToken: () => "",
         getUsuarioDev: () => "",
         getPerfilDev: () => "",
+        getEnvSso: () => "",
         isPreOrPro: () => true,
+        isSsoDefined: (sso) => true,
+        isTokenExpired: (sso) => false,
+        tryToGetSso: (maxRetries, sso) => sso
     };
     let config = Object.assign({}, defaults, options);
     return await fetchApiOriginal(endpoint, config)
@@ -183,7 +188,7 @@ describe('fetchApi', () => {
 
     })
 
-    // MARK: body
+    // MARK: Body
     describe('cuerpo', () => {
         it('por defecto el body undefined', async () => {
             vi.spyOn(global, "fetch").mockImplementationOnce(() => createFetchResponse(200))
@@ -202,11 +207,73 @@ describe('fetchApi', () => {
         })
     })
 
-    // MARK: sso
+    // MARK: SSO Token
     // https://stackoverflow.com/questions/59417195/how-do-i-mock-a-return-value-multiple-times-with-different-values-in-the-same-te
     describe('sso - gestion de token y reintentos', () => {
         it('si está en modo desarrollo no comprueba token/expiracion/loquesea', () => {
 
+        })
+
+        it('si está en modo desarrollo se puede usar token de entorno (ejemplo: del localStorage)', async () => {
+            const envSso = "Bearer TokeDemo"
+            const getEnvSsoMock = vi.fn().mockImplementationOnce(() => envSso)
+
+            await fetchApi(fakeendpoint, {
+                isPreOrPro: () => false,
+                getEnvSso: getEnvSsoMock,
+            })
+
+            expect(getEnvSsoMock).toHaveBeenCalledOnce()
+            expect(fetch).toHaveBeenCalledWith(expect.anything(), expect.objectContaining({ headers: expect.objectContaining({ "Authorization": envSso }) }))
+        })
+
+        it('si está en modo pre/pro no se puede usar token de entorno', async () => {
+            const envSso = "Bearer TokeDemo"
+            const getEnvSsoMock = vi.fn().mockImplementationOnce(() => envSso)
+
+            await fetchApi(fakeendpoint, {
+                isPreOrPro: () => true,
+                getEnvSso: getEnvSsoMock,
+            })
+
+            expect(getEnvSsoMock).not.toHaveBeenCalled()
+            expect(fetch).toHaveBeenCalledWith(expect.anything(), expect.objectContaining({ headers: expect.not.objectContaining({ "Authorization": envSso }) }))
+        })
+
+        it('si está en modo pre/pro comprueba SSO, si no está definido intenta conseguirlo y si lo consigue se pone como header', async () => {
+            const ssoTest = "Bearer TokenDemo"
+            const isSsoDefinedMock = vi.fn().mockImplementationOnce(() => false)
+            const tryToGetSsoMock = vi.fn().mockImplementationOnce(() => ssoTest)
+
+            await fetchApi(fakeendpoint, {
+                isPreOrPro: () => true,
+                isSsoDefined: isSsoDefinedMock,
+                tryToGetSso: tryToGetSsoMock
+            })
+
+            expect(isSsoDefinedMock).toHaveBeenCalled()
+            expect(tryToGetSsoMock).toHaveBeenCalled()
+            expect(tryToGetSsoMock).toHaveBeenCalledWith(5, expect.anything())
+            expect(fetch).toHaveBeenCalledWith(expect.anything(), expect.objectContaining({ headers: expect.objectContaining({ "Authorization": ssoTest }) }))
+        })
+
+        it('si está en modo pre/pro comprueba SSO, si está caducado intenta conseguirlo y si lo consigue se pone como header', async () => {
+            const ssoTest = "Bearer TokenDemo"
+            const isSsoDefinedMock = vi.fn().mockImplementationOnce(() => true)
+            const isTokenExpiredMock = vi.fn().mockImplementationOnce(() => true)
+            const tryToGetSsoMock = vi.fn().mockImplementationOnce(() => ssoTest)
+
+            await fetchApi(fakeendpoint, {
+                isPreOrPro: () => true,
+                isSsoDefined: isSsoDefinedMock,
+                isTokenExpired: isTokenExpiredMock,
+                tryToGetSso: tryToGetSsoMock
+            })
+
+            expect(isSsoDefinedMock).toHaveBeenCalled()
+            expect(tryToGetSsoMock).toHaveBeenCalled()
+            expect(tryToGetSsoMock).toHaveBeenCalledWith(5, expect.anything())
+            expect(fetch).toHaveBeenCalledWith(expect.anything(), expect.objectContaining({ headers: expect.objectContaining({ "Authorization": ssoTest }) }))
         })
     })
 
