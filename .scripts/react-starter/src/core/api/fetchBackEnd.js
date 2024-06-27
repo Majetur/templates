@@ -1,3 +1,6 @@
+//**** REVISAR PARA BORRAR *********/
+//En principio no se va a necesitar, borrar cuando este mas avanzado
+// el proyecto y podamos asegurarnos de esto
 import log from "loglevel"
 
 import { getBackend, getPerfilDev, getUsuarioDev } from "../config/config"
