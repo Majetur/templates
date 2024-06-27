@@ -1,8 +1,7 @@
 import { cleanup, fireEvent, render, screen } from "@testing-library/react";
-import { afterEach, describe, it, expect } from "vitest";
+import { afterEach, describe, it } from "vitest";
 import { MemoryRouter as Router } from "react-router-dom";
-import { Items } from "../../../../src/modules/List/pages/Items";
-
+import { Items } from "../../../../src/modules/list";
 
 describe('Items test:', () => {
     afterEach(cleanup);

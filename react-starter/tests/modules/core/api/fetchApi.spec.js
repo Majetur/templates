@@ -1,5 +1,5 @@
 import { describe, expect, it, vi, beforeEach } from "vitest";
-import { fetchApi as fetchApiOriginal } from "../../src/api/fetchApi";
+import { fetchApi as fetchApiOriginal } from "../../../../src/core";
 
 function createFetchResponse(status, data) {
     return Promise.resolve({
