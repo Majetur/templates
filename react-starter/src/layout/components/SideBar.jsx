@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom"
-import { menu } from "../config/menu"
+import { menu } from "../../config/menu"
 
 export const SideBar = () => {
 

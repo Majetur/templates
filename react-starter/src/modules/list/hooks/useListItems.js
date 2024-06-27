@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { api } from "../../api/Api"
+import { api } from "../../../core/api"
 import { toast } from "sonner"
 
 export const useListItems = () => {

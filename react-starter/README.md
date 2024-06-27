@@ -23,6 +23,8 @@ npm run dev
 - Añadir Item en Menu en `src/config/menu.jsx`
 - Añadir Pagina/Componente/Hook de un dominion en `src\modules\{nombreDeDominio}\`
 - Modificación de Layout en `src/layout`, ahora mismo hay Header, Sidebar y Content
+- Añadir llamada a la api en `src/api/Api.js`
+- Se pueden hacer llamadas GET/POST/PUT/DELETE, se puede añadir una en `src/api/Api.js`
 
 # ¿Con qué viene preparado/configurado?
 
