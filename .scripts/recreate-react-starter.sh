@@ -62,4 +62,6 @@ cp ../.scripts/react-starter/vite.config.js vite.config.js
 # cp tests folder
 cp -a ../.scripts/react-starter/. .
 
+echo ".env" >> .gitignore
+
 # npm run test

@@ -13,7 +13,7 @@ describe('Items test:', () => {
 
     it('renderiza el titulo', () => {
         render(<Router><Items /></Router>);
-        screen.getByText('Titulo');
+        screen.getByText('Consejo de Gobierno');
     });
 
     it('si accionamos el botón se cambia el titulo', async () => {
@@ -24,10 +24,10 @@ describe('Items test:', () => {
         await screen.findByText("Demo")
     });
 
-    it('aparece el item Rick Sanchez', async () => {
+    it('aparece el item Presidencia', async () => {
         render(<Router><Items /></Router>);
 
-        await screen.findByText("Rick Sanchez")
+        await screen.findByText("Presidencia")
     });
 
 });

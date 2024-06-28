@@ -7,7 +7,7 @@ describe('hook useListItems', () => {
     it('tiene un titulo', () => {
         const useListItemsHook = renderHook(() => useListItems())
 
-        expect(useListItemsHook.result.current.title).toBe("Titulo")
+        expect(useListItemsHook.result.current.title).toBe("Consejo de Gobierno")
     })
 
     it('tiene 0 elementos al arrancar', () => {

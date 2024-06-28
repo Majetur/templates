@@ -8,7 +8,7 @@ export const menu = [
         icon: <MdDashboard />
     },
     {
-        name: "Socios",
+        name: "Consejo de Gobierno",
         link: "/items",
         icon: <FaUsers />
     },

@@ -3,7 +3,7 @@ import { api } from "../../../core/api"
 import { toast } from "sonner"
 
 export const useListItems = () => {
-    const [title, setTitle] = useState("Titulo")
+    const [title, setTitle] = useState("Consejo de Gobierno")
     const [items, setItems] = useState([])
     
     const handleClick = () => {
@@ -11,7 +11,7 @@ export const useListItems = () => {
         setTitle("Demo")
     }
     
-    const fetchItems = async () => setItems((await api.personajes()).results)
+    const fetchItems = async () => setItems((await api.consejodegobierno()))
     
     useEffect(() => { fetchItems() }, [])
 

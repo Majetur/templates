@@ -34,7 +34,6 @@ npm run dev
 - Sonner
 - loglevel
 - React Icons
-- loglevel
 - Preparado con Vitest y ejemplos (funcion, Componente y Hook)
     - npm run test (para ejecutar los tests una vez)
     - npm run tdd (modo relanzar los tests ante cambios en los ficheros)

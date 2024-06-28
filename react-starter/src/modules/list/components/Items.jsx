@@ -1,20 +1,14 @@
 import { api } from "../../../core/api";
 import { useEffect, useState } from "react";
 import { toast } from "sonner"
+import { useListItems } from "../hooks/useListItems";
 
 export const Items = () => {
 
-  const [title, setTitle] = useState("Titulo")
-  const [items, setItems] = useState([])
-  const handleClick = () => {
-    toast.success("Boton clickado")
-    setTitle("Demo")
-  }
-  const fetchItems = async () => setItems((await api.personajes()).results)
-  useEffect(() => { fetchItems() }, [])
-
+  const {title, items, handleClick} = useListItems();
+ 
   return (
-    <div className="container max-w-3xl px-4 mx-auto sm:px-8">
+    <div className="container   max-w-3xl px-4 mx-auto sm:px-8 ">
       <div className="py-8">
         <div className="flex flex-row justify-between w-full mb-1 sm:mb-0">
           <h2 className="text-2xl leading-tight">
@@ -41,33 +35,34 @@ export const Items = () => {
               <thead>
                 <tr>
                   <th scope="col" className="px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white border-b border-gray-200">
+                    
+                  </th>
+                  <th scope="col" className="px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white border-b border-gray-200">
                     Nombre
                   </th>
                   <th scope="col" className="px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white border-b border-gray-200">
-                    Especie
+                    Consejería
                   </th>
                 </tr>
               </thead>
               <tbody>
-                {items.map(item =>
-                  <tr key={item.id}>
+                {items && items.map(item =>
+                  <tr key={item.persona}>
+                    <td className="px-5 py-5 text-sm bg-white border-b border-gray-200 whitespace-no-wrap">
+                      <img alt="profile" src={item.imageLink} className="mx-auto object-cover rounded-full h-20 w-20 " />
+                    </td>
                     <td className="px-5 py-5 text-sm bg-white border-b border-gray-200">
                       <div className="flex items-center">
-                        <div className="flex-shrink-0">
-                          <a className="relative block">
-                            <img alt="profile" src={item.image} className="mx-auto object-cover rounded-full h-20 w-20 " />
-                          </a>
-                        </div>
                         <div className="ml-3">
                           <p className="text-gray-900 whitespace-no-wrap">
-                            {item.name}
+                            <a href={item.personaLink} target="_blank">{item.persona}</a>
                           </p>
                         </div>
                       </div>
                     </td>
                     <td className="px-5 py-5 text-sm bg-white border-b border-gray-200">
                       <p className="text-gray-900 whitespace-no-wrap">
-                        {item.species}
+                        <a href={item.consejeriaLink} target="_blank">{item.consejeria}</a>
                       </p>
                     </td>
                   </tr>
