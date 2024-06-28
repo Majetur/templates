@@ -32,6 +32,7 @@ npm run dev
 - React Router Dom
 - Tailwind
 - Sonner
+- loglevel
 - React Icons
 - loglevel
 - Preparado con Vitest y ejemplos (funcion, Componente y Hook)

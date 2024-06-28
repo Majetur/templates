@@ -16,6 +16,9 @@ function App() {
   const log = getLogger(getComponentName(App));
   log.info("logger configugrado")
 
+  configLogger()
+  log.info("logger para trazas configurado")
+
   return (
     <>
       <Toaster richColors closeButton position="top-center" />
