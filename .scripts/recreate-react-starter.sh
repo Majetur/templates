@@ -53,6 +53,8 @@ npm install sonner --package-lock-only --no-package-lock
 npm i react-icons --package-lock-only --no-package-lock
 
 npm i loglevel --package-lock-only --no-package-lock
+npm i loglevel-plugin-prefix --package-lock-only --no-package-lock
+
 
 # Configuracion de Vite
 cp ../.scripts/react-starter/vite.config.js vite.config.js
