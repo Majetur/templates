@@ -1,9 +1,25 @@
 import log from 'loglevel';
+import prefix from 'loglevel-plugin-prefix';
 
 const logLevel = import.meta.env.VITE_LOG_LEVEL || 'silent'
 
+prefix.reg(log);
+
+prefix.apply(log, {
+  format(level, name, timestamp) {
+    const nombre = name=='root'? '':`[${name}]` 
+    return `${timestamp} [${level}] ${nombre}:`;
+  }
+});
+
+export function getComponentName(Component) {
+  const componentName = Component.displayName || Component.name || 'Unknown';
+  return componentName
+}
+
+
 export function configLogger() {
-  
+
   switch (logLevel) {
     case 'trace':
       log.setLevel(log.levels.TRACE);
