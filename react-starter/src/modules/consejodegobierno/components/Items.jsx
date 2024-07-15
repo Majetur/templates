@@ -1,5 +1,5 @@
 import { useListItems } from "../hooks/useListItems";
-import { Table } from "../../../core/list/Components/Table";
+import { Table } from "../../../core/list/components/Table";
 import { getLoggerComponent } from "../../../core/logger/logger";
 
 

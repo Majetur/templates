@@ -11,7 +11,7 @@ export const menu = [
     },
     {
         name: "Consejo de Gobierno",
-        link: "/consejoGobierno",
+        link: "/consejodegobierno",
         icon: <FaUsers />
     }
 ]
