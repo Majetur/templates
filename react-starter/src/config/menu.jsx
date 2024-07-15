@@ -1,6 +1,8 @@
 import { FaUsers } from "react-icons/fa"
 import { MdDashboard } from "react-icons/md"
 
+export const tituloMenu = "Plantilla"
+
 export const menu = [
     {
         name: "Dashboard",
@@ -9,7 +11,7 @@ export const menu = [
     },
     {
         name: "Consejo de Gobierno",
-        link: "/items",
+        link: "/consejoGobierno",
         icon: <FaUsers />
-    },
+    }
 ]

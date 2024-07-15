@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom"
-import { menu } from "../../config/menu"
+import { menu, tituloMenu } from "../../config/menu"
 
 export const SideBar = () => {
 
@@ -12,7 +12,7 @@ export const SideBar = () => {
     <div className="relative hidden h-screen shadow-lg lg:block w-80">
       <div className="h-full bg-white dark:bg-gray-700">
         <div className="flex items-center justify-start pt-6 ml-8">
-          <p className="text-xl font-bold dark:text-white">Biblioteca</p>
+          <p className="text-xl font-bold dark:text-white">{tituloMenu}</p>
         </div>
         <nav className="mt-6">
           <div>

@@ -11,9 +11,10 @@ export const useListItems = () => {
         setTitle("Demo")
     }
     
-    const fetchItems = async () => setItems((await api.consejodegobierno()))
+    const fetchItems = async () => setItems((await api.consejodegobierno()))    
     
     useEffect(() => { fetchItems() }, [])
 
+    // return {title, items, columnasConsejoGobierno, handleClick}
     return {title, items, handleClick}
 }

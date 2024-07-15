@@ -1,7 +1,7 @@
 import { Layout } from "../layout";
 import { Dashboard } from "../modules/dashboard";
 import { ErrorPage } from "../core";
-import { Items } from "../modules/list";
+import { Items as ItemsCB } from "../modules/consejoGobierno"
 
 
 export const routes = [
@@ -15,8 +15,8 @@ export const routes = [
                 element: <Dashboard />,
             },
             {
-                path: "/items",
-                element: <Items />,
+                path: "/consejoGobierno",
+                element: <ItemsCB />,
             },
         ]
     },

@@ -1,6 +1,6 @@
 import { act, renderHook } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
-import { useListItems } from "../../../../src/modules/list";
+import { useListItems } from "../../../../src/modules/consejoGobierno"
 
 
 describe('hook useListItems', () => {
