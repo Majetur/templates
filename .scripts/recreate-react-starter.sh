@@ -52,9 +52,12 @@ npm install sonner --package-lock-only --no-package-lock
 # React Icons
 npm i react-icons --package-lock-only --no-package-lock
 
+# Log Level
 npm i loglevel --package-lock-only --no-package-lock
 npm i loglevel-plugin-prefix --package-lock-only --no-package-lock
 
+# TanStack Table
+npm i install @tanstack/react-table --package-lock-only --no-package-lock
 
 # Configuracion de Vite
 cp ../.scripts/react-starter/vite.config.js vite.config.js
@@ -63,5 +66,8 @@ cp ../.scripts/react-starter/vite.config.js vite.config.js
 cp -a ../.scripts/react-starter/. .
 
 echo ".env" >> .gitignore
+
+rm ../react-starter/src/App.css
+rm ../react-starter/src/index.css
 
 # npm run test

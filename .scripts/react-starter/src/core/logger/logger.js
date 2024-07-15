@@ -1,4 +1,4 @@
-import log from 'loglevel';
+import log, { getLogger } from 'loglevel';
 import prefix from 'loglevel-plugin-prefix';
 
 const logLevel = import.meta.env.VITE_LOG_LEVEL || 'silent'
@@ -7,16 +7,18 @@ prefix.reg(log);
 
 prefix.apply(log, {
   format(level, name, timestamp) {
-    const nombre = name=='root'? '':`[${name}]` 
+    const nombre = name == 'root' ? '' : `[${name}]`
     return `${timestamp} [${level}] ${nombre}:`;
   }
 });
 
-export function getComponentName(Component) {
+function getComponentName(Component) {
   const componentName = Component.displayName || Component.name || 'Unknown';
   return componentName
 }
-
+export function getLoggerComponent(Component) {
+  return getLogger(getComponentName(Component));
+}
 
 export function configLogger() {
 
