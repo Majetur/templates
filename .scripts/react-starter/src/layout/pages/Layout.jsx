@@ -1,10 +1,9 @@
 import { ErrorBoundary } from "../../core"
 import { Content, Header, SideBar } from "../components"
-import { getComponentName } from "../../config/logger";
-import { getLogger} from "loglevel";
+import { getLoggerComponent } from "../../core/logger/logger";
 
 export const Layout = () => {
-  const log = getLogger(getComponentName(Layout)); 
+  const log = getLoggerComponent(Layout)
   log.info("Cargando Layout...")
 
   return (

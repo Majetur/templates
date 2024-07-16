@@ -5,15 +5,14 @@ import {
 } from "react-router-dom";
 import { Toaster } from "sonner";
 import { routes } from "./config/routes";
-import { configLogger, getComponentName } from "./config/logger";
-import { getLogger } from "loglevel";
+import { configLogger, getLoggerComponent } from "./core/logger"
 
 const router = createBrowserRouter(routes);
 
 function App() {
   configLogger()
 
-  const log = getLogger(getComponentName(App));
+  const log = getLoggerComponent(App)
   log.info("logger configugrado")
 
   configLogger()
