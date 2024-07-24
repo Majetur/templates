@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { api } from "../../../core/api"
+import { api } from "../../../core"
 import { toast } from "sonner"
 
 export const useListItems = () => {
@@ -15,6 +15,5 @@ export const useListItems = () => {
     
     useEffect(() => { fetchItems() }, [])
 
-    // return {title, items, columnasConsejoGobierno, handleClick}
     return {title, items, handleClick}
 }
