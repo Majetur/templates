@@ -1,4 +1,4 @@
-export const PaginationFooter = ({ table, isFetching }) => {
+export const PaginationFooter = ({ table }) => {
   return (
     <div className="flex flex-col flex-wrap items-center px-5 py-5 bg-white xs:flex-row xs:justify-between">
       <div className="flex flex-row">
@@ -47,7 +47,6 @@ export const PaginationFooter = ({ table, isFetching }) => {
           >
             {'Última'}
           </button>
-          {isFetching ? 'Cargando...' : null}
         </div>
       </div>
     </div>

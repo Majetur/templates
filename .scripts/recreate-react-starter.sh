@@ -74,5 +74,5 @@ echo ".env" >> .gitignore
 rm ../react-starter/src/App.css
 rm ../react-starter/src/index.css
 
-cat VITE_LOG_LEVEL="info" > ../react-starter/src/.env
+echo VITE_LOG_LEVEL="info" > ../react-starter/.env
 # npm run test
