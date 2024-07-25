@@ -5,5 +5,10 @@ const backend = {
 }
 
 export let api = {
-    consejodegobierno: async () => await backend.get("/consejogobierno")
+    consejodegobierno: async () => await backend.get("/consejogobierno"),
+    aplicaciones: async (page, pageSize) => {
+        const endpoint = `/aplicaciones?page=${page}&pagesize=${pageSize}`;
+        return await backend.get(endpoint);
+    }
+
 }

@@ -58,6 +58,10 @@ npm i loglevel-plugin-prefix --package-lock-only --no-package-lock
 
 # TanStack Table
 npm i install @tanstack/react-table --package-lock-only --no-package-lock
+npm i install @tanstack/react-query --package-lock-only --no-package-lock
+
+# Query String (para la lectura de parametro en la url del navegador)
+npm i install query-string --package-lock-only --no-package-lock
 
 # Configuracion de Vite
 cp ../.scripts/react-starter/vite.config.js vite.config.js
@@ -70,4 +74,5 @@ echo ".env" >> .gitignore
 rm ../react-starter/src/App.css
 rm ../react-starter/src/index.css
 
+echo VITE_LOG_LEVEL="info" > ../react-starter/.env
 # npm run test

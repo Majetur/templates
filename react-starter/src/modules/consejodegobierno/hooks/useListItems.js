@@ -1,20 +1,32 @@
 import { useEffect, useState } from "react"
-import { api } from "../../../core/api"
+import { api } from "../../../core"
 import { toast } from "sonner"
 
 export const useListItems = () => {
-    const [title, setTitle] = useState("Consejo de Gobierno")
+    const [cabecera, setCabecera] = useState({
+        title: "",
+        btnCabecera: undefined
+    });
     const [items, setItems] = useState([])
-    
+
     const handleClick = () => {
         toast.success("Boton clickado")
-        setTitle("Demo")
+        setCabecera(prev => ({ ...prev, title: "Titulo cambiado" }));
     }
-    
-    const fetchItems = async () => setItems((await api.consejodegobierno()))    
-    
+
+    useEffect(() => {
+        setCabecera({
+            title: "Consejo de Gobierno",
+            btnCabecera: {
+                lblBoton: "Cambia Título",
+                onClickBoton: handleClick
+            }
+        });
+    }, []);
+
+    const fetchItems = async () => setItems((await api.consejodegobierno()))
+
     useEffect(() => { fetchItems() }, [])
 
-    // return {title, items, columnasConsejoGobierno, handleClick}
-    return {title, items, handleClick}
+    return { cabecera, items }
 }

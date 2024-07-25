@@ -13,5 +13,10 @@ export const menu = [
         name: "Consejo de Gobierno",
         link: "/consejodegobierno",
         icon: <FaUsers />
-    }
+    },
+    {
+        name: "Listado Con Paginación Manual",
+        link: "/listadoaplicaciones",
+        icon: <FaUsers />
+    },
 ]
