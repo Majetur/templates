@@ -2,7 +2,7 @@ import { Layout } from "../layout";
 import { Dashboard } from "../modules/dashboard";
 import { ErrorPage } from "../core";
 import { ListadoConsejoGobierno } from "../modules/consejodegobierno"
-import { ListadoConPaginacionManual } from "../modules/listadoconpaginacionmanual";
+import { ListadoAplicaciones } from "../modules/listadoaplicaciones";
 
 export const routes = [
     {
@@ -19,8 +19,8 @@ export const routes = [
                 element: <ListadoConsejoGobierno />,
             },
             {
-                path: "/listadoconpaginacionmanual",
-                element: <ListadoConPaginacionManual />,
+                path: "/listadoaplicaciones",
+                element: <ListadoAplicaciones />,
             },
         ]
     },

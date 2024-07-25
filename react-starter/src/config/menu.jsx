@@ -16,7 +16,7 @@ export const menu = [
     },
     {
         name: "Listado Con Paginación Manual",
-        link: "/listadoconpaginacionmanual",
+        link: "/listadoaplicaciones",
         icon: <FaUsers />
     },
 ]

@@ -1,6 +1,6 @@
 import { flexRender } from '@tanstack/react-table';
 
-export const Table = ({ table }) => {
+export const TablaBasica = ({ table }) => {
   return (
     <table className="w-full border-collapse bg-white text-left text-sm text-gray-500"     >
       <thead>
@@ -11,8 +11,19 @@ export const Table = ({ table }) => {
                 className="px-6 py-4 font-medium text-gray-900"
                 key={header.id} colSpan={header.colSpan}>
                 {header.isPlaceholder ? null : (
-                  <div>
+                  <div
+                    {...{
+                      className: header.column.getCanSort()
+                        ? "cursor-pointer select-none"
+                        : "",
+                      onClick: header.column.getToggleSortingHandler(),
+                    }}
+                  >
                     {flexRender(header.column.columnDef.header, header.getContext())}
+                    {{
+                      asc: " 🔼",
+                      desc: " 🔽",
+                    }[header.column.getIsSorted()] ?? null}
                   </div>
                 )}
               </th>
