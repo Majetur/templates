@@ -39,21 +39,15 @@ npm run dev
     - npm run tdd (modo relanzar los tests ante cambios en los ficheros)
     - npm run coverage
 
-# Como trabajar con trazas
-- En javascript de frontend no se puede crear ficheros de log
-- Las trazas se imprimen en consola, evitar el uso de console.log, console.error,... ya que no podemos controlar que no se vean en entornos de produccion
-- El uso de loglevel nos facilita indicar que nivel de trazas imprimir o incluso no imprimir ninguno (silent)
-- En el fichero .env indicar con el siguiente parametro el nivel, por ejemplo: `VITE_LOG_LEVEL='debug'` o si no se pone nada no se imprime ninguna traza
-- Posibles valores de menos a mas restringido: 'trace','debug','info','warn','error','silent'
-- Para escribir una traza en nuestro codigo **dentro de un componente** que lleve el nombre del componente:
-  - necesitamos hacer el import del logger personalizado para el componente  `import { getLoggerComponent } from "<ruta_relativa_de_src_core>/logger`
-  - una vez hecho estos dos imports en nuestro codigo:
-    - declaramos la constante para el log,  `const log = getLoggerComponent(<Componente>)` cambiando `<Componente>` por nuestro componente, por ej: `const log = getLoggerComponent(Layout)`   
-    - ya podremos escribir trazas usando  `log.trace()`,`log.debug()`,`log.info()`,`log.warn()`,`log.error()` 
-- Si queremos escribir una traza **en otro lugar** que no sea un componente, o no queremos que salga el nombre del componente en la traza:  - 
-  - necesitamos `import log from "loglevel" ` (Nota: si lo hacemos con el tabulador dentro del codigo resiva que no lo ponga entre llaves {log}) 
-  - ya podremos escribir trazas usando  `log.trace()`,`log.debug()`,`log.info()`,`log.warn()`,`log.error()` 
-
 # Como cambiar el nombre que aparece en la barra de la pestaña del navegador
 - En el directorio raiz hay un fichero `index.html`
 - Modificar el titulo `<title>Vite + React</title>` cambiando el literal `Vite + React` por el nombre de nuestro proyecto
+
+# modulos transversales de ayuda
+- Dentro de la carpeta src/core encontramos diversos modulos de apoyo a la construcción de nuestros componentes, dentro de dichos modulos podemos encontrar un fichero README.md que nos ayudará a entender su funcionamiento
+- Entre estos modulos podremos encontrar los siguientes:
+  - api: para la obtencion de los datos que usaremos en nuestros componentes, en fetchApi integraremos el fetch con SSO
+  - custom_modals: ventanas personalizadas para mensajes de alerta y/o de confirmacion
+  - error: para los errores tipo boundary (excepciones no controladas por el componente) y error tipo 404 o de routes
+  - list: para mostrar listados de diferentes tipos (automatizados, con paginacion controlada,...)
+  - logger: para la escritura de trazas por niveles y control de nivel

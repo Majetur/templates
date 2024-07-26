@@ -1,6 +1,6 @@
 import { flexRender } from '@tanstack/react-table';
 
-export const TablaBasica = ({ table }) => {
+export const Tabla = ({ table }) => {
   return (
     <table className="w-full border-collapse bg-white text-left text-sm text-gray-500"     >
       <thead>
