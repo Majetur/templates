@@ -1,21 +1,22 @@
-import { createContext, useContext, useState } from 'react';
+import { useState } from 'react';
 import Modal from 'react-modal';
 
-const ModalContext = createContext();
-
-export const useModal = () => useContext(ModalContext);
+import { ModalContext } from './ModalContext'; // Importa el contexto
 
 export const ModalProvider = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [modalType, setModalType] = useState('alert');
   const [content, setContent] = useState({ title: "", content: "" });
 
-  const openModal = (modalContent) => {
+  const openModal = (modalContent, type = 'alert') => {
     setContent(modalContent);
+    setModalType(type);
     setIsOpen(true);
   };
 
   const closeModal = () => {
     setIsOpen(false);
+    setContent({ title: "", content: "", onConfirm: null });
   };
 
   return (
@@ -48,8 +49,19 @@ export const ModalProvider = ({ children }) => {
           <h2 className="text-2xl font-semibold mb-4">{content.title}</h2>
           <p>{content.content}</p>
           <div className="flex justify-center mt-8">
+            {modalType === 'confirm' && (
+              <button
+                onClick={() => {
+                  if (content.onConfirm) content.onConfirm();
+                  closeModal();
+                }}
+                className="px-6 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors duration-300"
+              >
+                Confirm
+              </button>
+            )}
             <button onClick={closeModal} className="px-6 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors duration-300">
-              Close
+              {modalType === 'confirm' ? 'Cancel' : 'Close'}
             </button>
           </div>
         </div>
