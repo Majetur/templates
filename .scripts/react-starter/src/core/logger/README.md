@@ -1,0 +1,14 @@
+# Como trabajar con trazas
+- En javascript de frontend no se puede crear ficheros de log
+- Las trazas se imprimen en consola, debemos evitar el uso de console.log, console.error,... ya que no podemos controlar que no se vean en entornos de produccion
+- El uso de loglevel nos facilita indicar que nivel de trazas imprimir o incluso no imprimir ninguno (silent)
+- En el fichero .env indicar con el siguiente parametro el nivel, por ejemplo: `VITE_LOG_LEVEL='debug'` o si no se pone nada no se imprime ninguna traza
+- Posibles valores de menos a mas restringido: 'trace','debug','info','warn','error','silent'
+- Para escribir una traza en nuestro codigo **dentro de un componente** que lleve el nombre del componente:
+  - necesitamos hacer el import del logger personalizado para el componente  `import { getLoggerComponent } from "<ruta_relativa_de_src_core>/logger`
+  - una vez hecho estos dos imports en nuestro codigo:
+    - declaramos la constante para el log,  `const log = getLoggerComponent(<Componente>)` cambiando `<Componente>` por nuestro componente, por ej: `const log = getLoggerComponent(Layout)`   
+    - ya podremos escribir trazas usando  `log.trace()`,`log.debug()`,`log.info()`,`log.warn()`,`log.error()` 
+- Si queremos escribir una traza **en otro lugar** que no sea un componente, o no queremos que salga el nombre del componente en la traza:  - 
+  - necesitamos `import log from "loglevel" ` (Nota: si lo hacemos con el tabulador dentro del codigo revisa que no lo ponga entre llaves {log}) 
+  - ya podremos escribir trazas usando  `log.trace()`,`log.debug()`,`log.info()`,`log.warn()`,`log.error()` 

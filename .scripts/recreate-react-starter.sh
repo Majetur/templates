@@ -63,6 +63,9 @@ npm i install @tanstack/react-query --package-lock-only --no-package-lock
 # Query String (para la lectura de parametro en la url del navegador)
 npm i install query-string --package-lock-only --no-package-lock
 
+# Para el uso de ventanas modales
+npm i react-modal --package-lock-only --no-package-lock
+
 # Configuracion de Vite
 cp ../.scripts/react-starter/vite.config.js vite.config.js
 
