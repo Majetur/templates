@@ -7,8 +7,7 @@ import {
     getFilteredRowModel,
 } from "@tanstack/react-table";
 
-import { PaginationFooter, PaginationHeader, TablaBasica } from '../components';
-import { Cabecera } from '../components/Cabecera';
+import { Cabecera, PaginationFooter, PaginationHeader, Tabla } from '../components';
 
 // export const ListadoAutomatizado = ({ title="", columns = [], data, handleClick }) => {
 export const ListadoAutomatizado = ({ cabecera, columns = [], data }) => {
@@ -46,7 +45,7 @@ export const ListadoAutomatizado = ({ cabecera, columns = [], data }) => {
 
                 <Cabecera cabecera={cabecera} />
                 <PaginationHeader table={table} />
-                <TablaBasica table={table} />
+                <Tabla table={table} />
                 <PaginationFooter table={table} />
             </div>
         </main>

@@ -1,4 +1,4 @@
-import { FaUsers } from "react-icons/fa"
+import { FaList, FaTools, FaUsers } from "react-icons/fa"
 import { MdDashboard } from "react-icons/md"
 
 export const tituloMenu = "Plantilla"
@@ -15,8 +15,13 @@ export const menu = [
         icon: <FaUsers />
     },
     {
-        name: "Listado Con Paginación Manual",
+        name: "Lista de Aplicaciones",
         link: "/listadoaplicaciones",
-        icon: <FaUsers />
+        icon: <FaList />
+    },
+    {
+        name: "Utilidades",
+        link: "/utilidades",
+        icon: <FaTools />
     },
 ]

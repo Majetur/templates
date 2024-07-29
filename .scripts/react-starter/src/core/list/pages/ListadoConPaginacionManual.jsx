@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import { useReactTable, getCoreRowModel } from '@tanstack/react-table';
 
-import { Cabecera, PaginationFooter, PaginationHeader, TablaBasica } from '../../../core/list/components';
+import { Cabecera, PaginationFooter, PaginationHeader, Tabla } from '../components';
 
 export const ListadoConPaginacionManual = ({ columnasListado, useFetchData }) => {
   const columns = useMemo(() => columnasListado, []);
@@ -32,7 +32,7 @@ export const ListadoConPaginacionManual = ({ columnasListado, useFetchData }) =>
       <div className="rounded-lg border border-gray-200 shadow-md">
         <Cabecera cabecera={cabecera} />
         <PaginationHeader table={table} />
-        <TablaBasica table={table} />
+        <Tabla table={table} />
         <PaginationFooter table={table} />
         {/* <div>
           Showing {table.getRowModel().rows.length.toLocaleString()} of{' '}
