@@ -15,7 +15,7 @@ export const menu = [
         icon: <FaUsers />
     },
     {
-        name: "Lista de Aplicaciones",
+        name: "Aplicaciones",
         link: "/listadoaplicaciones",
         icon: <FaList />
     },
