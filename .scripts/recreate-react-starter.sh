@@ -6,8 +6,11 @@ npm create vite@latest react-starter -- --template react-swc
 
 cd react-starter
 
-# Install Vitest
-npm install -D vitest @vitest/coverage-v8 --package-lock-only --no-package-lock
+# Install Vitest, solo para entorno de desarrollo => --save-dev
+npm install -D vitest @vitest/coverage-v8 --save-dev --package-lock-only --no-package-lock
+npm install fetch-mock --save-dev --package-lock-only --no-package-lock
+# ampliacion con aserciones adicionales.
+npm install @testing-library/jest-dom --save-dev --package-lock-only --no-package-lock
 
 # Array de comandos y scripts
 commands=(
@@ -65,6 +68,7 @@ npm i install query-string --package-lock-only --no-package-lock
 
 # Para el uso de ventanas modales
 npm i react-modal --package-lock-only --no-package-lock
+
 
 # Configuracion de Vite
 cp ../.scripts/react-starter/vite.config.js vite.config.js

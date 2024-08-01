@@ -7,7 +7,7 @@ describe('hook useListItems', () => {
     it('tiene un titulo', () => {
         const useListItemsHook = renderHook(() => useListItems())
 
-        expect(useListItemsHook.result.current.title).toBe("Consejo de Gobierno")
+        expect(useListItemsHook.result.current.cabecera.title).toBe("Consejo de Gobierno")
     })
 
     it('tiene 0 elementos al arrancar', () => {
@@ -20,9 +20,9 @@ describe('hook useListItems', () => {
         const useListItemsHook = renderHook(() => useListItems())
 
         act(() => {
-            useListItemsHook.result.current.handleClick()
+            useListItemsHook.result.current.cabecera.btnCabecera.onClickBoton()
         })
 
-        expect(useListItemsHook.result.current.title).toBe("Demo")
+        expect(useListItemsHook.result.current.cabecera.title).toBe("Titulo cambiado")
     })
 })
