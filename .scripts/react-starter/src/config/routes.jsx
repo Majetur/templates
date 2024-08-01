@@ -1,6 +1,6 @@
 import { Layout } from "../layout";
 import { ErrorPage } from "../core/error";
-import { Dashboard , ListadoConsejoGobierno , ListadoAplicaciones, Utilidades } from "../modules";
+import { ListadoConsejoGobierno, ListadoAplicaciones, Utilidades, DashboardTemplate, Dashboard } from "../modules";
 
 export const routes = [
     {
@@ -10,7 +10,7 @@ export const routes = [
         children: [
             {
                 path: "/",
-                element: <Dashboard />,
+                element: <DashboardTemplate />,
             },
             {
                 path: "/consejodegobierno",
@@ -22,8 +22,12 @@ export const routes = [
             },
             {
                 path: "/utilidades",
-                element: <Utilidades/>,
-            }
+                element: <Utilidades />,
+            },
+            {
+                path: "/dashboard", // Esta ruta la usaremos para paginas de pruebas que
+                element: <Dashboard />, // no quedarmos mostrar en el menu de la izquierda
+            },
         ]
     },
 ]
