@@ -1,2 +1,2 @@
 export * from "./api"
-export * from "./fetchApi"
+export * from "./fetchBackEnd"
