@@ -1,4 +1,4 @@
-import { ENDPOINT_APLICACIONES, ENDPOINT_UNIDAD_ORGANICA } from "../../config/constants";
+import { ENDPOINT_APLICACIONES, ENDPOINT_CONSEJO_GOBIERNO, ENDPOINT_UNIDAD_ORGANICA } from "../../config/constants";
 import { fetchBackEnd } from "./fetchBackEnd";
 
 const backendPublic = {
@@ -10,7 +10,7 @@ const backendSSO = {
 }
 
 export let api = {
-    consejodegobierno: async () => await backendPublic.get("/consejogobierno"),
+    consejodegobierno: async () => await backendPublic.get(ENDPOINT_CONSEJO_GOBIERNO),
     aplicaciones: async (page, pageSize) => {
         const endpoint = `${ENDPOINT_APLICACIONES}?page=${page}&pagesize=${pageSize}`;
         return await backendPublic.get(endpoint);
