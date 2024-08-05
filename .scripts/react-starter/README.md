@@ -57,3 +57,6 @@ npm run dev
 # Como cambiar el nombre que aparece en la barra de la pestaña del navegador
 - En el directorio raiz hay un fichero `index.html`
 - Modificar el titulo `<title>Vite + React</title>` cambiando el literal `Vite + React` por el nombre de nuestro proyecto
+
+# Configuracion de entorno y funcionalidad
+- Ahora mismo este frontend trabaja contra un backend en pru que requiere SSO, por lo que si queremos trabajar en local o en un entorno sin token SSO necesitamos obtenerlo (podemos conseguirlo logandonos desde pru) y añadir al localstorage una variable 'token' con el valor de la SSO que hayamos obtenido

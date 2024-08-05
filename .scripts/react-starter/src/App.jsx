@@ -8,6 +8,7 @@ import { routes } from "./config/routes";
 import { configLogger, getLoggerComponent } from "./core/logger"
 import { ModalProvider } from "./core/custom_modal";
 import Modal from 'react-modal';
+import { UserProvider } from "./core/user";
 
 Modal.setAppElement('#root'); // Asegúrate de que el ID coincide con el elemento raíz en tu HTML
 
@@ -21,10 +22,12 @@ function App() {
 
   return (
     <>
-      <Toaster richColors closeButton position="top-center" />
-      <ModalProvider>
-        <RouterProvider router={router} />
-      </ModalProvider>
+      <UserProvider>
+        <Toaster richColors closeButton position="top-center" />
+        <ModalProvider>
+          <RouterProvider router={router} />
+        </ModalProvider>
+      </UserProvider>
     </>
   )
 }
