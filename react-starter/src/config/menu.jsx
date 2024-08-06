@@ -12,6 +12,8 @@ export const menu = [
         icon: <MdDashboard />
     },
     {
+        //Los elementos con hijos no deben llevar enlace y deben tener una propiedad submenu conn
+        //los elementos que se quiere. (Si se desea otro comportamiento se deberan implementarlo)
         name: "Listados",
         icon: <FaList />,
         submenu: [
