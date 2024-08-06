@@ -28,7 +28,7 @@ export const SideBar = ({ sidebarOpen, setSidebarOpen }) => {
   const inactiveItem = "flex items-center justify-start w-full p-2 pl-6 my-2 text-gray-800 transition-colors duration-200";
   const activeItem = "flex items-center justify-start w-full p-2 pl-6 my-2 text-gray-800 transition-colors duration-200 border-l-4 border-purple-500 dark:text-white";
   const staticItem = "flex items-center justify-between w-full p-2 pl-6 my-2 text-gray-600 cursor-pointer"; // Clase CSS para items sin link
-  const subItem = "flex items-center justify-start w-full p-2 pl-12 my-2 text-gray-800 transition-colors duration-200"; // Clase CSS para subitems
+  const subItem = "flex items-center justify-start w-full p-2 pl-10 my-2 text-gray-800 transition-colors duration-200"; // Clase CSS para subitems
 
   return (
     <div className={`relative ${!sidebarOpen && 'hidden'} h-screen shadow-lg lg:block w-80`}>
