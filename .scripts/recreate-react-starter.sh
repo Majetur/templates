@@ -69,6 +69,9 @@ npm i install query-string --package-lock-only --no-package-lock
 # Para el uso de ventanas modales
 npm i react-modal --package-lock-only --no-package-lock
 
+# Para el fetch con SSO
+npm install fetchssoapi
+
 
 # Configuracion de Vite
 cp ../.scripts/react-starter/vite.config.js vite.config.js
@@ -81,5 +84,9 @@ echo ".env" >> .gitignore
 rm ../react-starter/src/App.css
 rm ../react-starter/src/index.css
 
-echo VITE_LOG_LEVEL="info" > ../react-starter/.env
+echo "# Valores de menos a mas restringido: 'trace','debug','info','warn','error','silent'" > ../react-starter/.env
+echo VITE_LOG_LEVEL="info" >> ../react-starter/.env
+echo VITE_BACKEND="https://pruebasso.acaex.es/pruebasso" >> ../react-starter/.env
+echo "# Valores posibles: local, dev, pru, pro" >>../react-starter/.env
+echo VITE_ENV="pru">>../react-starter/.env
 # npm run test

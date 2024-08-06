@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { api } from "../../../core"
 import { toast } from "sonner"
 
-export const useListItems = () => {
+export const useListConsejoGobierno = () => {
     const [cabecera, setCabecera] = useState({
         title: "",
         btnCabecera: undefined

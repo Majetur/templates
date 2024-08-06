@@ -1,14 +1,12 @@
-import { getLoggerComponent } from "../../../core";
+// import { getLoggerComponent } from "../../../core";
 import { ListadoAutomatizado } from "../../../core/list/pages";
 import { ColumnasConsejoGobierno } from "../components";
-import { useListItems } from "../hooks";
+import { useListConsejoGobierno } from "../hooks";
 
 export const ListadoConsejoGobierno = () => {
-  const log = getLoggerComponent(ListadoConsejoGobierno);
-  // const { title, items, handleClick } = useListItems();
-  const { cabecera, items } = useListItems();
+  // const log = getLoggerComponent(ListadoConsejoGobierno);
+  const { cabecera, items } = useListConsejoGobierno();
   return (
-    // <ListadoAutomatizado title={title} columns={ColumnasConsejoGobierno} data={items} handleClick={handleClick}/>
     <ListadoAutomatizado cabecera={cabecera} columns={ColumnasConsejoGobierno} data={items} />
   )
 }
