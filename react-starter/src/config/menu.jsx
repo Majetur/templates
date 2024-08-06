@@ -1,4 +1,5 @@
-import { FaList, FaTools, FaUsers } from "react-icons/fa"
+import { FaList, FaTools, FaUsers, FaAppStore } from "react-icons/fa"
+import { GiOrganigram } from "react-icons/gi";
 import { MdDashboard } from "react-icons/md"
 import { APLICACIONES_URL, CONSEJO_GOBIERNO_URL, RAIZ_URL, UNIDAD_ORGANICA_URL, UTILIDADES_URL } from "./constants"
 
@@ -11,24 +12,32 @@ export const menu = [
         icon: <MdDashboard />
     },
     {
-        name: "Consejo de Gobierno",
-        link: CONSEJO_GOBIERNO_URL,
-        icon: <FaUsers />
+        name: "Listados",
+        icon: <FaList />,
+        submenu: [
+            {
+                name: "Consejo de Gobierno",
+                link: CONSEJO_GOBIERNO_URL,
+                icon: <FaUsers />
+            },
+            {
+                name: "Aplicaciones",
+                link: APLICACIONES_URL,
+                icon: <FaAppStore />
+            },
+            {
+                name: "Unidades Orgánicas",
+                link: UNIDAD_ORGANICA_URL,
+                icon: <GiOrganigram />
+            },
+        ]
     },
-    {
-        name: "Aplicaciones",
-        link: APLICACIONES_URL,
-        icon: <FaList />
-    },
+
     {
         name: "Utilidades",
         link: UTILIDADES_URL,
         icon: <FaTools />
     },
-    {
-        name: "Unidades organicas",
-        link: UNIDAD_ORGANICA_URL,
-        icon: <FaList />
-    },
+
 
 ]
