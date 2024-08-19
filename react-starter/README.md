@@ -11,7 +11,7 @@ npm install -g degit
 Para descargar el template a una carpeta `app` y levantar el proyecto
 
 ```sh
-degit raultm/vite-template/template app
+degit raultm/templates/react-starter ap
 cd app
 npm i
 npm run dev
@@ -33,6 +33,10 @@ npm run dev
 - Tailwind
 - Sonner
 - loglevel
+- tanStack Table
+- QueryString
+- React Modal
+- fetchssoapi
 - React Icons
 - Preparado con Vitest y ejemplos (funcion, Componente y Hook)
     - npm run test (para ejecutar los tests una vez)
