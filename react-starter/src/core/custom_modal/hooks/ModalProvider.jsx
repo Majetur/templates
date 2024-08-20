@@ -45,7 +45,7 @@ export const ModalProvider = ({ children }) => {
           },
         }}
       >
-        <div className="bg-white p-6 rounded-lg shadow-lg max-w-xs mx-auto text-center">
+        <div>
           <h2 className="text-2xl font-semibold mb-4">{content.title}</h2>
           <p>{content.content}</p>
           <div className="flex justify-center mt-8">
