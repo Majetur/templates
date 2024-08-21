@@ -19,8 +19,8 @@ export const fetchBackEnd = async (
             title: 'No autorizado',
             html: `
                     <p>No estás autorizado para acceder a este menú. Si lo deseas, puedes hacerlo en 
-                    <a href="https://pruautenticacionsso.acaex.es/unidadorganica/listado" target="_blank" rel="noopener noreferrer">
-                        https://pruautenticacionsso.acaex.es/unidadorganica/listado
+                    <a href="https://pruautenticacionsso.acaex.es" target="_blank" rel="noopener noreferrer">
+                        https://pruautenticacionsso.acaex.es
                     </a>.
                     </p>`,
             confirmButtonText: 'Close'

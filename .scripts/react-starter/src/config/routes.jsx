@@ -1,8 +1,9 @@
 import { Layout } from "../layout";
 import { ErrorPage } from "../core/error";
-import { ListadoConsejoGobierno, ListadoAplicaciones, Utilidades, DashboardTemplate, Dashboard } from "../modules";
-import { APLICACIONES_URL, CONSEJO_GOBIERNO_URL, DASHBOARD_URL, DETALLE_UNIDAD_ORGANICA_URL, RAIZ_URL, UNIDAD_ORGANICA_URL, UTILIDADES_URL } from "./constants";
+import { ListadoConsejoGobierno, ListadoAplicaciones, Utilidades, DashboardTemplate, Dashboard, ModificaConsejero, AltaConsejero } from "../modules";
+import { APLICACIONES_URL, CONSEJO_GOBIERNO_ALTA_URL, CONSEJO_GOBIERNO_CRUD_URL, CONSEJO_GOBIERNO_MODIFICACION_URL, CONSEJO_GOBIERNO_URL, DASHBOARD_URL, DETALLE_UNIDAD_ORGANICA_URL, RAIZ_URL, UNIDAD_ORGANICA_URL, UTILIDADES_URL } from "./constants";
 import { ListadoUnidadesOrganicas, DetalleUnidadOrganica } from "../modules/unidadesorganicas";
+import { ListadoConsejoGobiernoCRUD } from "../modules/consejodegobierno/pages/ListadoConsejoGobiernoCRUD";
 
 export const routes = [
     {
@@ -17,6 +18,18 @@ export const routes = [
             {
                 path: CONSEJO_GOBIERNO_URL,
                 element: <ListadoConsejoGobierno />,
+            },
+            {
+                path: CONSEJO_GOBIERNO_CRUD_URL,
+                element: <ListadoConsejoGobiernoCRUD />,
+            },
+            {
+                path: CONSEJO_GOBIERNO_MODIFICACION_URL + "/:elementoId",
+                element: <ModificaConsejero />,
+            },
+            {
+                path: CONSEJO_GOBIERNO_ALTA_URL,
+                element: <AltaConsejero />,
             },
             {
                 path: APLICACIONES_URL,
