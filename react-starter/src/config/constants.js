@@ -2,6 +2,9 @@
 export const RAIZ_URL = "/"
 
 export const CONSEJO_GOBIERNO_URL = "/consejodegobierno"
+export const CONSEJO_GOBIERNO_CRUD_URL = "/consejodegobiernocrud"
+export const CONSEJO_GOBIERNO_MODIFICACION_URL = CONSEJO_GOBIERNO_CRUD_URL + "/modificacion"
+export const CONSEJO_GOBIERNO_ALTA_URL = CONSEJO_GOBIERNO_CRUD_URL + "/alta"
 export const UNIDAD_ORGANICA_URL = "/unidadorganica/listado"
 export const DETALLE_UNIDAD_ORGANICA_URL = "/unidadorganica/detalle"
 export const APLICACIONES_URL = "/aplicaciones"
@@ -23,3 +26,8 @@ export const ENDPOINT_USUARIO = "/user"
 
 //************** EXTERNAS *********************/
 export const SSO_CIERRE_SESION_URL = "https://pruportalsso.acaex.es/my.logout.php3"
+
+
+//Acciones para el CRUD
+export const ALTA = "alta"
+export const MODIFICACION = "modificacion"

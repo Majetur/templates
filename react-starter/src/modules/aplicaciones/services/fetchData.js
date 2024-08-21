@@ -1,4 +1,4 @@
-import { api } from "../../../core/api"
+import { apiPublic as api } from "../../../core/api"
 export const fetchData = async (pagination) => {
   const { pageIndex, pageSize } = pagination;
 
