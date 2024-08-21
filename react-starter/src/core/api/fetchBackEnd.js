@@ -1,6 +1,6 @@
+import Swal from 'sweetalert2';
 import { fetchApi } from "fetchssoapi";
 import { isSSOEnviroment } from "../helpers/functionalHelpers";
-
 
 export const fetchBackEnd = async (
     endpoint,
@@ -13,8 +13,22 @@ export const fetchBackEnd = async (
     headers: cabeceraAdicional,
     hasAttachments: tieneAdjuntos,
     body: cuerpo,
+    onUnauthorized: () => {
+        Swal.fire({
+            icon: 'error',
+            title: 'No autorizado',
+            html: `
+                    <p>No estás autorizado para acceder a este menú. Si lo deseas, puedes hacerlo en 
+                    <a href="https://pruautenticacionsso.acaex.es/unidadorganica/listado" target="_blank" rel="noopener noreferrer">
+                        https://pruautenticacionsso.acaex.es/unidadorganica/listado
+                    </a>.
+                    </p>`,
+            confirmButtonText: 'Close'
+        });
+    },
     isSSOEnviroment: isSSOEnviroment
 })
+
 
 // Sintaxis: fetchApi(endpoint, options)
 // Un ejemplo de posibles valores para options podría ser
