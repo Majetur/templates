@@ -1,21 +1,32 @@
 import { useState } from 'react';
 import Modal from 'react-modal';
-
 import { ModalContext } from './ModalContext'; // Importa el contexto
 
 export const ModalProvider = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [modalType, setModalType] = useState('alert');
-  const [content, setContent] = useState({ title: "", content: "" });
+  const [content, setContent] = useState({ title: "", content: "", onConfirm: null });
 
   const openModal = (modalContent, type = 'alert') => {
-    setContent(modalContent);
-    setModalType(type);
-    setIsOpen(true);
+    return new Promise((resolve, reject) => {
+      setContent({
+        ...modalContent,
+        onConfirm: () => {
+          if (modalContent.onConfirm) modalContent.onConfirm();
+          resolve(); // Resuelve la promesa cuando se confirma
+        },
+        onClose: () => {
+          resolve(); // Resuelve la promesa cuando se cierra sin confirmar
+        }
+      });
+      setModalType(type);
+      setIsOpen(true);
+    });
   };
 
   const closeModal = () => {
     setIsOpen(false);
+    if (content.onClose) content.onClose();
     setContent({ title: "", content: "", onConfirm: null });
   };
 
@@ -45,7 +56,7 @@ export const ModalProvider = ({ children }) => {
           },
         }}
       >
-        <div className="bg-white p-6 rounded-lg shadow-lg max-w-xs mx-auto text-center">
+        <div>
           <h2 className="text-2xl font-semibold mb-4">{content.title}</h2>
           <p>{content.content}</p>
           <div className="flex justify-center mt-8">
@@ -69,3 +80,8 @@ export const ModalProvider = ({ children }) => {
     </ModalContext.Provider>
   );
 };
+
+
+
+
+

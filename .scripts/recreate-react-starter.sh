@@ -72,6 +72,12 @@ npm i react-modal --package-lock-only --no-package-lock
 # Para el fetch con SSO
 npm install fetchssoapi
 
+# Para validacion de formulario
+npm install react-hook-form yup @hookform/resolvers
+
+# Para alertas simples, un poco mas elaborados que los alert de javascript
+# pero con menos control y opciones que los react-modal
+npm install sweetalert2
 
 # Configuracion de Vite
 cp ../.scripts/react-starter/vite.config.js vite.config.js

@@ -3,10 +3,6 @@ import { DETALLE_UNIDAD_ORGANICA_URL } from '../../../config/constants';
 
 export const ColumnasUnidadesOrganicas = [
   {
-    header: 'Id',
-    accessorKey: 'id',
-  },
-  {
     header: 'Nombre',
     accessorKey: 'name',
     cell: ({ row }) => (

@@ -1,7 +1,7 @@
 import { FaList, FaTools, FaUsers, FaAppStore } from "react-icons/fa"
 import { GiOrganigram } from "react-icons/gi";
 import { MdDashboard } from "react-icons/md"
-import { APLICACIONES_URL, CONSEJO_GOBIERNO_URL, RAIZ_URL, UNIDAD_ORGANICA_URL, UTILIDADES_URL } from "./constants"
+import { APLICACIONES_URL, CONSEJO_GOBIERNO_CRUD_URL, CONSEJO_GOBIERNO_URL, RAIZ_URL, UNIDAD_ORGANICA_URL, UTILIDADES_URL } from "./constants"
 
 export const tituloMenu = "Plantilla"
 
@@ -20,6 +20,11 @@ export const menu = [
             {
                 name: "Consejo de Gobierno",
                 link: CONSEJO_GOBIERNO_URL,
+                icon: <FaUsers />
+            },
+            {
+                name: "Consejo de Gobierno (crud)",
+                link: CONSEJO_GOBIERNO_CRUD_URL,
                 icon: <FaUsers />
             },
             {

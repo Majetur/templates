@@ -1,12 +1,13 @@
 import { api } from '../../../core';
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { ENDPOINT_UNIDAD_ORGANICA } from '../../../config/constants';
 
 
 export const DetalleUnidadOrganica = () => {
   const { elementoId } = useParams();
   const [unidadOrganica, setUnidadOrganica] = useState()
-  const fetchItem = async () => setUnidadOrganica((await api.detalleunidadorganica(elementoId)))
+  const fetchItem = async () => setUnidadOrganica((await api.getdetail(ENDPOINT_UNIDAD_ORGANICA, elementoId)))
 
   useEffect(() => {
     fetchItem()
@@ -30,11 +31,7 @@ export const DetalleUnidadOrganica = () => {
           <hr className="my-4" />
           {unidadOrganica && (
             <form className="flex items-center">
-              <div className="p-2 bg-white space-y-1 ml-4 flex flex-col">
-                <span>
-                  <label className="font-semibold">Id:</label>
-                  <label className="ml-1">{unidadOrganica.id}</label>
-                </span>
+              <div className="p-2 bg-white space-y-1 ml-4 flex flex-col">                
                 <span>
                   <label className="font-semibold">Dir3:</label>
                   <label className="ml-1">{unidadOrganica.dir3}</label>

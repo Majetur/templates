@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { api } from "../../../core"
+import { ENDPOINT_UNIDAD_ORGANICA } from "../../../config/constants";
 
 export const useListUnidadesOrganicas = () => {
     const [cabecera, setCabecera] = useState({
@@ -15,7 +16,7 @@ export const useListUnidadesOrganicas = () => {
         });
     }, []);
 
-    const fetchItems = async () => setItems((await api.unidadesorganicas()))
+    const fetchItems = async () => setItems((await api.getlist(ENDPOINT_UNIDAD_ORGANICA)))
 
     useEffect(() => { fetchItems() }, [])
 

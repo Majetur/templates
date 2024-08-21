@@ -1,1 +1,1 @@
-export * from "./ColumnasConsejoGobierno"
+export * from "./FormularioConsejero"
