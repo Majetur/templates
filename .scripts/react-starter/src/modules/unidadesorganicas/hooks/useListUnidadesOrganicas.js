@@ -16,7 +16,7 @@ export const useListUnidadesOrganicas = () => {
         });
     }, []);
 
-    const fetchItems = async () => setItems((await api.getlist(ENDPOINT_UNIDAD_ORGANICA)))
+    const fetchItems = async () => setItems((await api.list(ENDPOINT_UNIDAD_ORGANICA)))
 
     useEffect(() => { fetchItems() }, [])
 

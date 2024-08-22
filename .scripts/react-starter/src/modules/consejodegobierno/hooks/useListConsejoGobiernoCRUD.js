@@ -11,19 +11,19 @@ export const useListConsejoGobiernoCRUD = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const navegar = useNavigate();
-    const cabecera =({
+    const cabecera = ({
         title: "Consejo de Gobierno",
-            btnCabecera: {
-                lblBoton: "Alta Consejero",
-                onClickBoton: () => navegar(CONSEJO_GOBIERNO_ALTA_URL)
-            }
+        btnCabecera: {
+            lblBoton: "Alta Consejero",
+            onClickBoton: () => navegar(CONSEJO_GOBIERNO_ALTA_URL)
+        }
     });
-    
+
     const ColumnasConsejoGobierno = getColumnasConsejoGobiernoCRUD(openModal, navegar)
     useEffect(() => {
         const fetchItems = async () => {
             try {
-                // const data = await api.getlist(ENDPOINT_COLABORADORES);
+                // const data = await api.list(ENDPOINT_COLABORADORES);
                 const data = await api.consejodegobierno()
                 setItems(data);
             } catch (err) {

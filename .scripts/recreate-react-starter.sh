@@ -14,6 +14,7 @@ npm install @testing-library/jest-dom --save-dev --package-lock-only --no-packag
 
 # Array de comandos y scripts
 commands=(
+    "devbrowser:vite --open"
     "coverage:vitest run --coverage"
     "tdd:vitest"
     "test:vitest run"
@@ -90,9 +91,3 @@ echo ".env" >> .gitignore
 rm ../react-starter/src/App.css
 rm ../react-starter/src/index.css
 
-echo "# Valores de menos a mas restringido: 'trace','debug','info','warn','error','silent'" > ../react-starter/.env
-echo VITE_LOG_LEVEL="info" >> ../react-starter/.env
-echo VITE_BACKEND="https://pruebasso.acaex.es/pruebasso" >> ../react-starter/.env
-echo "# Valores posibles: local, dev, pru, pro" >>../react-starter/.env
-echo VITE_ENV="pru">>../react-starter/.env
-# npm run test
