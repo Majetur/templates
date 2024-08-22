@@ -87,6 +87,8 @@ cp ../.scripts/react-starter/vite.config.js vite.config.js
 cp -a ../.scripts/react-starter/. .
 
 echo ".env" >> .gitignore
+echo "!.vscode/settings.json" >> .gitignore
+echo "!.vscode/tasks.json" >> .gitignore
 
 rm ../react-starter/src/App.css
 rm ../react-starter/src/index.css
