@@ -58,6 +58,8 @@ if not exist ".git" (
     )
 )
 
+yarn devbrowser
+
 echo Setup completado.
 endlocal
 exit /b 0
