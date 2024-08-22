@@ -16,6 +16,8 @@ if not exist ".env" (
     )
 )
 
+START /B yarn devbrowser
+
 REM Comprueba si el comando commit-and-tag-version está instalado
 where commit-and-tag-version >nul 2>&1
 if %errorlevel% neq 0 (
@@ -57,8 +59,6 @@ if not exist ".git" (
         exit /b 1
     )
 )
-
-yarn devbrowser
 
 echo Setup completado.
 endlocal

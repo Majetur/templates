@@ -20,6 +20,7 @@ cd app
 npm i
 # Abrimos en IDE de VsCode para que configure el proyecto
 code .
+echo "Ok"
 ```
 
 Al abrirlo con VsCode se Configurará automaticamente
