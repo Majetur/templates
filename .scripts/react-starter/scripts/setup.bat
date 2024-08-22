@@ -16,7 +16,7 @@ if not exist ".env" (
     )
 )
 
-START /B yarn devbrowser
+REM START /B yarn devbrowser
 
 REM Comprueba si el comando commit-and-tag-version está instalado
 where commit-and-tag-version >nul 2>&1
