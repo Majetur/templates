@@ -1,5 +1,8 @@
 {
     "recommendations": [
-        "vitest.explorer"
+        "vitest.explorer",
+        "vscode-icons-team.vscode-icons",
+        "spencerwmiles.vscode-task-buttons",
+        "vivaxy.vscode-conventional-commits"
     ]
 }

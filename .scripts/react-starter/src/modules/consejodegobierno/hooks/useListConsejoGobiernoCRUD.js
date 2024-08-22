@@ -23,9 +23,7 @@ export const useListConsejoGobiernoCRUD = () => {
     useEffect(() => {
         const fetchItems = async () => {
             try {
-                // const data = await api.list(ENDPOINT_COLABORADORES);
-                const data = await api.consejodegobierno()
-                setItems(data);
+                setItems(await api.consejodegobierno());
             } catch (err) {
                 log.error("[useListConsejoGobiernoCRUD] Error fetching Consejo de Gobierno:", err);
                 setError("Ocurrió un error al cargar el listado de Consejo de Gobierno. Por favor, intentalo de nuevo más tarde.");
