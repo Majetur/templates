@@ -1,10 +1,10 @@
 import { render, screen, fireEvent, cleanup } from '@testing-library/react';
 import { describe, it, expect, beforeEach, afterEach } from 'vitest';
-import { ModalProvider, useModal } from '../../../../src/core/custom_modal';
 
 import Modal from 'react-modal';
 Modal.setAppElement(document.createElement('div'));
 
+import { useModal, ModalProvider } from '../../../../../src/core/custom_modal/hooks';
 
 // Componente de prueba para usar el hook useModal
 const TestComponent = () => {

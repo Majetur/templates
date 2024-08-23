@@ -1,8 +1,7 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { render, screen, fireEvent, cleanup } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import { ErrorBoundary } from '../../../../src/core';
-
+import { ErrorBoundary } from "../../../../../src/core/error/components/ErrorBoundary";
 
 describe('ErrorBoundary', () => {
 
@@ -76,7 +75,7 @@ describe('ErrorBoundary', () => {
         render(
             <MemoryRouter>
                 <ErrorBoundary>
-                    <ProblemChild />
+                    <ProblemChild shouldThrow={true} />
                 </ErrorBoundary>
             </MemoryRouter>
         );
