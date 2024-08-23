@@ -1,8 +1,8 @@
 import { render, screen, fireEvent, cleanup } from '@testing-library/react';
 import { describe, it, beforeEach, expect, afterEach } from 'vitest';
-import { AlertModal, ModalProvider } from '../../../../src/core/custom_modal';
 
 import Modal from 'react-modal';
+import { AlertModal, ModalProvider } from '../../../../../src/core/custom_modal';
 Modal.setAppElement(document.createElement('div'));
 
 describe('AlertModal', () => {

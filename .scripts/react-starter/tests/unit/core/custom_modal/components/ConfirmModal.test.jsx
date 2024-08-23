@@ -1,6 +1,6 @@
 import { render, screen, fireEvent, cleanup } from '@testing-library/react';
 import { describe, it, beforeEach, expect, afterEach, vi } from 'vitest';
-import { ModalProvider, ConfirmModal } from '../../../../src/core/custom_modal';
+import { ModalProvider, ConfirmModal } from '../../../../../src/core/custom_modal';
 
 import Modal from 'react-modal';
 Modal.setAppElement(document.createElement('div'));
