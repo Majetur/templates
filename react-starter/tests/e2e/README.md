@@ -1,0 +1,1 @@
+# Aunque Vitest tambien puede implementar pruebas e2e se recomienda usar Cypress para ese tipo de pruebas
